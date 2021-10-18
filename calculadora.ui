@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>317</width>
-    <height>358</height>
+    <width>332</width>
+    <height>408</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,19 +26,22 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
-      <width>281</width>
+      <y>50</y>
+      <width>291</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Tw Cen MT Condensed Extra Bold</family>
+      <family>Calculator</family>
       <pointsize>-1</pointsize>
      </font>
     </property>
     <property name="mouseTracking">
      <bool>false</bool>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: orange;
@@ -46,8 +49,8 @@
 	border-style: solid;
 	border-radius: 0px;	
 	border-color: #000000;
-	font-size: 40px;
-	padding: 10px;</string>
+	font-size: 50px;
+	padding: 5px 10px;</string>
     </property>
     <property name="lineWidth">
      <number>1</number>
@@ -61,15 +64,29 @@
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
    </widget>
    <widget class="QPushButton" name="boton1">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
+      <y>170</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -100,10 +117,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>140</y>
+      <y>170</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -134,10 +162,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>140</y>
+      <y>170</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -168,10 +207,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>190</y>
+      <y>220</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -202,10 +252,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>190</y>
+      <y>220</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -236,10 +297,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>190</y>
+      <y>220</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -270,10 +342,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>240</y>
+      <y>270</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -304,10 +387,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>240</y>
+      <y>270</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -338,10 +432,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>240</y>
+      <y>270</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -372,10 +477,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>240</y>
+      <y>270</y>
       <width>51</width>
-      <height>91</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -404,10 +520,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>140</y>
+      <y>170</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -419,7 +546,7 @@ QPushButton::hover
 	font-weight: bold;
 	font-size: 18px;
 	margin: 2px;
-}
+[O}
 
 QPushButton::hover
 {
@@ -436,10 +563,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>190</y>
+      <y>220</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -468,10 +606,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>290</y>
+      <y>320</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -502,10 +651,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>290</y>
+      <y>320</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -534,10 +694,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>140</y>
+      <y>220</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -564,12 +735,23 @@ QPushButton::hover
    </widget>
    <widget class="QPushButton" name="raizr">
     <property name="geometry">
-     <rect>
+[I     <rect>
       <x>260</x>
-      <y>90</y>
+      <y>170</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -591,17 +773,28 @@ QPushButton::hover
 }</string>
     </property>
     <property name="text">
-     <string>√x</string>
+     <string>�vx</string>
     </property>
    </widget>
    <widget class="QPushButton" name="borrar_termino">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>90</y>
+      <y>120</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -630,10 +823,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>90</y>
+      <y>120</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -662,10 +866,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>90</y>
+      <y>120</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -694,17 +909,21 @@ QPushButton::hover
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>90</y>
+      <y>120</y>
       <width>51</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Bahnschrift SemiBold</family>
       <pointsize>-1</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -726,17 +945,28 @@ QPushButton::hover
 }</string>
     </property>
     <property name="text">
-     <string>←</string>
+     <string>?</string>
     </property>
    </widget>
    <widget class="QPushButton" name="negativo">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>290</y>
+      <x>200</x>
+      <y>320</y>
       <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -761,9 +991,131 @@ QPushButton::hover
      <string>+/-</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="decimal">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>320</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: #cfcfcf;
+	color: #2b2b2b;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: #000000;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 2px;
+}
+
+QPushButton::hover
+{
+	background-color: black;
+	color:white;
+
+}</string>
+    </property>
+    <property name="text">
+     <string>,</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_op">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>19</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: orange;
+	color: #000;
+	border-style: solid;
+	border-radius: 0px;	
+	border-color: #000000;
+	font-size: 20px;
+	padding: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="margin">
+     <number>-10</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_parentesis">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>120</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: #cfcfcf;
+	color: #2b2b2b;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: #000000;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 2px;
+}
+
+QPushButton::hover
+{
+	background-color: black;
+	color:white;
+
+}</string>
+    </property>
+    <property name="text">
+     <string>( )</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
 </ui>
+

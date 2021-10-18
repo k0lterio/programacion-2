@@ -4,6 +4,7 @@
 #       Fernando Quintero                       #
 #       Gustavo Rios                            #
 #===============================================#
+
 import math
 from typing import Text
 from PyQt5 import uic
@@ -16,11 +17,12 @@ class MiVentana(QMainWindow):
         uic.loadUi("calculadora.ui", self)
         self.setWindowTitle("Calculadora")
         #Seteamos los operadores
-        self.operador1 = 0
-        self.operador2 = 0
-        #Seteamos el tipo de operaci贸n a realizar
+        self.operador = []
+        self.result = 0
+        
+        #Seteamos el tipo de operaci髇 a realizar
         self.operacion = ""
-        #Listeners de Eventos de los botones de los n煤meros
+        #Listeners de Eventos de los botones de los n鷐eros
         self.boton1.clicked.connect(self.click_1)
         self.boton2.clicked.connect(self.click_2)
         self.boton3.clicked.connect(self.click_3)
@@ -40,6 +42,7 @@ class MiVentana(QMainWindow):
         self.potenciar.clicked.connect(self.potencia)
         self.raizr.clicked.connect(self.raiz)
         self.igual.clicked.connect(self.resultado)
+        self.decimal.clicked.connect(self.punto)
 
         #Listener de Borrado de termino
         self.borrar_termino.clicked.connect(self.borrar)
@@ -53,81 +56,261 @@ class MiVentana(QMainWindow):
 
     #Eventos operaciones
     def sumar(self):
-        #Si ya tiene asignado un operador, agregamos el otro con el mismo bot贸n
-        if(self.operador1 == 0):
-            self.operador1 = int(self.Calculo.text())
-            self.Calculo.setText("")
-            self.operacion = "suma"
-        else:
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(self.operador1 + self.operador2))
+        #Si ya tiene asignado un operador, agregamos el otro con el mismo bot髇
+        try: 
+            if(self.operador == []):
+                self.operador.append(int(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " + ")
+                self.Calculo.setText("")
+                self.operacion = "suma"
+            else:
+                self.label_op.setText(self.label_op.text() + " + ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result + self.operador[-1]))
+                self.result = (int(self.Calculo.text()))
+        except:
+            if(self.operador == []):
+                self.operador.append(float(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " + ")
+                self.Calculo.setText("")
+                self.operacion = "suma"
+            else:
+                self.label_op.setText(self.label_op.text() + " + ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result + self.operador[-1]))
+                self.result = (float(self.Calculo.text()))
 
     def restar(self):
-        #Si ya tiene asignado un operador, agregamos el otro con el mismo bot贸n
-        if(self.operador1 == 0):
-            self.operador1 = int(self.Calculo.text())
-            self.Calculo.setText("")
-            self.operacion = "resta"
-        else:
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(self.operador1 - self.operador2))  
+        #Si ya tiene asignado un operador, agregamos el otro con el mismo bot髇
+        try:
+            if(self.operador == []):
+                self.operador.append(int(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " - ")
+                self.Calculo.setText("")
+                self.operacion = "resta"
+            else:
+                self.label_op.setText(self.label_op.text() + " - ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result - self.operador[-1]))
+                self.result = (int(self.Calculo.text()))  
+
+        except:
+            if(self.operador == []):
+                self.operador.append(float(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " - ")
+                self.Calculo.setText("")
+                self.operacion = "resta"
+            else:
+                self.label_op.setText(self.label_op.text() + " - ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result - self.operador[-1]))
+                self.result = (float(self.Calculo.text()))
 
     def multiplicar(self):
-        #Si ya tiene asignado un operador, agregamos el otro con el mismo bot贸n
-        if(self.operador1 == 0):
-            self.operador1 = int(self.Calculo.text())
-            self.Calculo.setText("")
-            self.operacion = "multiplicacion"
-        else:
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(self.operador1 * self.operador2))
+        #Si ya tiene asignado un operador, agregamos el otro con el mismo bot髇
+        try:
+            if(self.operador == []):
+                self.operador.append(int(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " * ")
+                self.Calculo.setText("")
+                self.operacion = "multiplicacion"
+            else:
+                self.label_op.setText(self.label_op.text() + " * ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result * self.operador[-1]))
+                self.result = (int(self.Calculo.text()))  
+
+        except:
+            if(self.operador == []):
+                self.operador.append(float(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " * ")
+                self.Calculo.setText("")
+                self.operacion = "multiplicacion"
+            else:
+                self.label_op.setText(self.label_op.text() + " * ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result * self.operador[-1]))
+                self.result = (float(self.Calculo.text()))
 
     def dividir(self):
-        #Si ya tiene asignado un operador, agregamos el otro con el mismo bot贸n
-        if(self.operador1 == 0):
-            self.operador1 = int(self.Calculo.text())
-            self.Calculo.setText("")
-            self.operacion = "division"
-        else:
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(int(self.operador1/self.operador2)))    
+        #Si ya tiene asignado un operador, agregamos el otro con el mismo bot髇
+        try:
+            if(self.operador == []):
+                self.operador.append(int(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " / ")
+                self.Calculo.setText("")
+                self.operacion = "division"
+            
+                #self.Calculo.setText("ERROR")
+
+            else:
+                self.label_op.setText(self.label_op.text() + " / ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result / self.operador[-1]))
+                self.result = (int(self.Calculo.text()))  
+
+        except:
+            if(self.operador == []):
+                self.operador.append(float(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " / ")
+                self.Calculo.setText("")
+                self.operacion = "division"
+            else:
+                self.label_op.setText(self.label_op.text() + " / ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result / self.operador[-1]))
+                self.result = (float(self.Calculo.text())) 
 
     def potencia(self):
-        if(self.operador1 == 0):
-            self.operador1 = int(self.Calculo.text())
-            self.Calculo.setText("")
-            self.operacion = "potenciar"
-        else:
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(self.operador1**self.operador2))
+        try:
+            if(self.operador == []):
+                self.operador.append(int(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " ^ ")
+                self.Calculo.setText("")
+                self.operacion = "potenciar"
+            else:
+                self.label_op.setText(self.label_op.text() + " ^ ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result ** self.operador[-1]))
+                self.result = (int(self.Calculo.text()))  
+
+        except:
+            if(self.operador == []):
+                self.operador.append(float(self.Calculo.text()))
+                #print(self.operador)
+                self.label_op.setText(str(self.operador[0]))
+                self.label_op.setText(self.label_op.text() + " ^ ")
+                self.Calculo.setText("")
+                self.operacion = "potenciar"
+            else:
+                self.label_op.setText(self.label_op.text() + " ^ ")
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.Calculo.setText(str(self.result ** self.operador[-1]))
+                self.result = (float(self.Calculo.text())) 
 
     def raiz(self):
-        if(self.operador1 == 0):
-            self.operador1 = int(self.Calculo.text())
+        if(self.operador == []):
+            self.operador.append(int(self.Calculo.text()))
+            self.label_op.setText(" 瞯 ")
+            self.label_op.setText(self.label_op.text() + str(self.operador[0]))           
             self.Calculo.setText("")
-            self.operacion = "raiz"
-            self.Calculo.setText(str(int(math.sqrt(self.operador1))))                          
+            self.operacion = "raiz"                          
 
     def resultado(self):
-        #Se procede a la operaci贸n dependiendo del tipo y siempre y cuando este determinado el primer operador.
-        if(self.operacion == "suma"):
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(self.operador1+self.operador2))
+        #Se procede a la operaci髇 dependiendo del tipo y siempre y cuando este determinado el primer operador.
+        if (self.operacion == "suma"):
+            try:
+                    self.operador.append(int(self.Calculo.text()))
+                    print(self.operador)
+                    self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                    for i in self.operador:
+                        self.result += i
+                        print(self.result)
+                    self.Calculo.setText(str(self.result))
+            except:
+                    self.operador.append(float(self.Calculo.text()))
+                    print(self.operador)
+                    self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                    for i in self.operador:
+                        self.result += i
+                        print(self.result)
+                    self.Calculo.setText(str(self.result))
+            
         elif(self.operacion == "resta"):
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(self.operador1-self.operador2))
+            try:    
+                self.operador.append(int(self.Calculo.text()))
+                print(self.operador)
+                self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                for i in self.operador:
+                    self.result = self.operador[0] - i
+                    print(self.result)
+                self.Calculo.setText(str(self.result))
+            except:
+                self.operador.append(float(self.Calculo.text()))
+                print(self.operador)
+                self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                for i in self.operador:
+                    self.result = self.operador[0] - i
+                    print(self.result)
+                self.Calculo.setText(str(self.result))
+
         elif(self.operacion == "multiplicacion"):
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(self.operador1 * self.operador2))
+            try:    
+                self.operador.append(int(self.Calculo.text()))
+                print(self.operador)
+                self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                for i in self.operador:
+                    self.result = self.operador[0] * i
+                    print(self.result)
+                self.Calculo.setText(str(self.result))
+            except:
+                self.operador.append(float(self.Calculo.text()))
+                print(self.operador)
+                self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                for i in self.operador:
+                    self.result = self.operador[0] * i
+                    print(self.result)
+                self.Calculo.setText(str(self.result))
+
         elif(self.operacion == "division"):
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(int(self.operador1 / self.operador2)))     
+            try:    
+                self.operador.append(int(self.Calculo.text()))
+                print(self.operador)
+                self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                for i in self.operador:
+                    self.result = self.operador[0] / i
+                    print(self.result)
+                self.Calculo.setText(str(self.result))
+            except:
+                self.operador.append(float(self.Calculo.text()))
+                print(self.operador)
+                self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                for i in self.operador:
+                    self.result = self.operador[0] / i
+                    print(self.result)
+                self.Calculo.setText(str(self.result))
+
         elif(self.operacion == "potenciar"):
-            self.operador2 = int(self.Calculo.text())
-            self.Calculo.setText(str(self.operador1**self.operador2))       
+            try:    
+                self.operador.append(int(self.Calculo.text()))
+                print(self.operador)
+                self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                for i in self.operador:
+                    self.result = self.operador[0] ** i
+                    print(self.result)
+                self.Calculo.setText(str(self.result))
+            except:
+                self.operador.append(float(self.Calculo.text()))
+                print(self.operador)
+                self.label_op.setText(self.label_op.text() + self.Calculo.text())
+                for i in self.operador:
+                    self.result = self.operador[0] ** i
+                    print(self.result)
+                self.Calculo.setText(str(self.result))
+
         elif(self.operacion == "raiz"):
-            self.operador1 = int(self.Calculo.text())
-            self.Calculo.setText(str(math.sqrt(self.operador1)))           
+            self.Calculo.setText(str(math.sqrt(self.operador[0])))           
+
+    def punto(self):
+        self.Calculo.setText(self.Calculo.text() + ".")
 
     #Eventos Borrar
     def borrar(self):
@@ -138,14 +321,15 @@ class MiVentana(QMainWindow):
         self.Calculo.setText(self.lista_digito [ : -1 ])
 
     def borrar_todo(self):  
-        self.operador1 = 0
-        self.operador2 = 0
+        self.operador = []
+        self.result = 0
         self.Calculo.clear()
+        self.label_op.clear()
 
     def cambio_signo(self):
         self.Calculo.setText(self.Calculo.text() + "-")    
 
-    #Eventos de asignaci贸n de valores al label
+    #Eventos de asignaci髇 de valores al label
     def click_1(self):
         self.Calculo.setText(self.Calculo.text() + "1")
 
@@ -180,3 +364,4 @@ app = QApplication([])
 win = MiVentana()
 win.show()
 app.exec_()
+
