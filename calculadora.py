@@ -8,7 +8,7 @@
 import math
 from typing import Text
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 
 
 class MiVentana(QMainWindow):
@@ -60,7 +60,6 @@ class MiVentana(QMainWindow):
         try: 
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " + ")
                 self.Calculo.setText("")
@@ -73,7 +72,6 @@ class MiVentana(QMainWindow):
         except:
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " + ")
                 self.Calculo.setText("")
@@ -89,7 +87,6 @@ class MiVentana(QMainWindow):
         try:
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " - ")
                 self.Calculo.setText("")
@@ -103,7 +100,6 @@ class MiVentana(QMainWindow):
         except:
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " - ")
                 self.Calculo.setText("")
@@ -119,7 +115,6 @@ class MiVentana(QMainWindow):
         try:
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " * ")
                 self.Calculo.setText("")
@@ -133,7 +128,6 @@ class MiVentana(QMainWindow):
         except:
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " * ")
                 self.Calculo.setText("")
@@ -149,14 +143,11 @@ class MiVentana(QMainWindow):
         try:
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " / ")
                 self.Calculo.setText("")
                 self.operacion = "division"
             
-                #self.Calculo.setText("ERROR")
-
             else:
                 self.label_op.setText(self.label_op.text() + " / ")
                 self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
@@ -166,7 +157,6 @@ class MiVentana(QMainWindow):
         except:
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " / ")
                 self.Calculo.setText("")
@@ -181,7 +171,6 @@ class MiVentana(QMainWindow):
         try:
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " ^ ")
                 self.Calculo.setText("")
@@ -195,7 +184,6 @@ class MiVentana(QMainWindow):
         except:
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
-                #print(self.operador)
                 self.label_op.setText(str(self.operador[0]))
                 self.label_op.setText(self.label_op.text() + " ^ ")
                 self.Calculo.setText("")
@@ -215,95 +203,83 @@ class MiVentana(QMainWindow):
             self.operacion = "raiz"                          
 
     def resultado(self):
-        #Se procede a la operación dependiendo del tipo y siempre y cuando este determinado el primer operador.
+        msg = QMessageBox()
+        msg.setWindowTitle("Division")
+        msg.setText("No se puede dividir por cero")
         if (self.operacion == "suma"):
             try:
                     self.operador.append(int(self.Calculo.text()))
-                    print(self.operador)
                     self.label_op.setText(self.label_op.text() + self.Calculo.text())
                     for i in self.operador:
                         self.result += i
-                        print(self.result)
                     self.Calculo.setText(str(self.result))
             except:
                     self.operador.append(float(self.Calculo.text()))
-                    print(self.operador)
                     self.label_op.setText(self.label_op.text() + self.Calculo.text())
                     for i in self.operador:
                         self.result += i
-                        print(self.result)
                     self.Calculo.setText(str(self.result))
             
         elif(self.operacion == "resta"):
             try:    
                 self.operador.append(int(self.Calculo.text()))
-                print(self.operador)
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] - i
-                    print(self.result)
                 self.Calculo.setText(str(self.result))
             except:
                 self.operador.append(float(self.Calculo.text()))
-                print(self.operador)
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] - i
-                    print(self.result)
                 self.Calculo.setText(str(self.result))
 
         elif(self.operacion == "multiplicacion"):
             try:    
                 self.operador.append(int(self.Calculo.text()))
-                print(self.operador)
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] * i
-                    print(self.result)
                 self.Calculo.setText(str(self.result))
             except:
                 self.operador.append(float(self.Calculo.text()))
-                print(self.operador)
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] * i
-                    print(self.result)
                 self.Calculo.setText(str(self.result))
 
         elif(self.operacion == "division"):
             try:    
                 self.operador.append(int(self.Calculo.text()))
-                print(self.operador)
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
-                    self.result = self.operador[0] / i
-                    print(self.result)
+                    if i == 0:
+                        msg.exec_()
+                    else:
+                        self.result = self.operador[0] / i
                 self.Calculo.setText(str(self.result))
             except:
                 self.operador.append(float(self.Calculo.text()))
-                print(self.operador)
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
-                    self.result = self.operador[0] / i
-                    print(self.result)
+                    if i == 0.0:
+                        msg.exec_()
+                    else:
+                        self.result = self.operador[0] / i
                 self.Calculo.setText(str(self.result))
 
         elif(self.operacion == "potenciar"):
             try:    
                 self.operador.append(int(self.Calculo.text()))
-                print(self.operador)
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] ** i
-                    print(self.result)
                 self.Calculo.setText(str(self.result))
             except:
                 self.operador.append(float(self.Calculo.text()))
-                print(self.operador)
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] ** i
-                    print(self.result)
                 self.Calculo.setText(str(self.result))
 
         elif(self.operacion == "raiz"):
