@@ -195,12 +195,22 @@ class MiVentana(QMainWindow):
                 self.result = (float(self.Calculo.text())) 
 
     def raiz(self):
-        if(self.operador == []):
-            self.operador.append(int(self.Calculo.text()))
-            self.label_op.setText(" ²v ")
-            self.label_op.setText(self.label_op.text() + str(self.operador[0]))           
-            self.Calculo.setText("")
-            self.operacion = "raiz"                          
+        try:
+            if(self.operador == []):
+                self.operador.append(int(self.Calculo.text()))
+                self.label_op.setText(" ²v ")
+                self.label_op.setText(self.label_op.text() + str(self.operador[0]))           
+                self.Calculo.setText("")
+                self.operacion = "raiz"                          
+
+        except:
+            
+            if(self.operador == []):
+                self.operador.append(float(self.Calculo.text()))
+                self.label_op.setText(" ²v ")
+                self.label_op.setText(self.label_op.text() + str(self.operador[0]))           
+                self.Calculo.setText("")
+                self.operacion = "raiz"                          
 
     def resultado(self):
         msg = QMessageBox()
