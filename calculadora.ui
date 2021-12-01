@@ -546,7 +546,7 @@ QPushButton::hover
 	font-weight: bold;
 	font-size: 18px;
 	margin: 2px;
-[O}
+}
 
 QPushButton::hover
 {
@@ -735,7 +735,7 @@ QPushButton::hover
    </widget>
    <widget class="QPushButton" name="raizr">
     <property name="geometry">
-[I     <rect>
+     <rect>
       <x>260</x>
       <y>170</y>
       <width>51</width>
@@ -773,7 +773,7 @@ QPushButton::hover
 }</string>
     </property>
     <property name="text">
-     <string>�vx</string>
+     <string>²√x</string>
     </property>
    </widget>
    <widget class="QPushButton" name="borrar_termino">
@@ -945,7 +945,7 @@ QPushButton::hover
 }</string>
     </property>
     <property name="text">
-     <string>?</string>
+     <string>←</string>
     </property>
    </widget>
    <widget class="QPushButton" name="negativo">
@@ -1118,4 +1118,3 @@ QPushButton::hover
  <resources/>
  <connections/>
 </ui>
-

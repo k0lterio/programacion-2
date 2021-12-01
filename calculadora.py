@@ -7,8 +7,10 @@
 
 import math
 from typing import Text
+import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5.QtCore import Qt
 
 
 class MiVentana(QMainWindow):
@@ -19,10 +21,9 @@ class MiVentana(QMainWindow):
         #Seteamos los operadores
         self.operador = []
         self.result = 0
-        
-        #Seteamos el tipo de operación a realizar
+        #Seteamos el tipo de operacion a realizar
         self.operacion = ""
-        #Listeners de Eventos de los botones de los números
+        #Listeners de Eventos de los botones de los numeros
         self.boton1.clicked.connect(self.click_1)
         self.boton2.clicked.connect(self.click_2)
         self.boton3.clicked.connect(self.click_3)
@@ -35,7 +36,7 @@ class MiVentana(QMainWindow):
         self.boton0.clicked.connect(self.click_0)
 
         #Listeners de Eventos de los botones de las operaciones
-        self.suma.clicked.connect(self.sumar)   
+        self.suma.clicked.connect(self.sumar)
         self.resta.clicked.connect(self.restar)
         self.producto.clicked.connect(self.multiplicar)
         self.division.clicked.connect(self.dividir)
@@ -43,20 +44,17 @@ class MiVentana(QMainWindow):
         self.raizr.clicked.connect(self.raiz)
         self.igual.clicked.connect(self.resultado)
         self.decimal.clicked.connect(self.punto)
-
         #Listener de Borrado de termino
         self.borrar_termino.clicked.connect(self.borrar)
         #Listener de borrado de un digito
         self.borrar_undigito.clicked.connect(self.borrar_digito)
         #Listener de Borrado completo
         self.eliminar.clicked.connect(self.borrar_todo)
-
         #Listener de convertir a negativo
         self.negativo.clicked.connect(self.cambio_signo)
 
     #Eventos operaciones
     def sumar(self):
-        #Si ya tiene asignado un operador, agregamos el otro con el mismo botón
         try: 
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
@@ -66,7 +64,7 @@ class MiVentana(QMainWindow):
                 self.operacion = "suma"
             else:
                 self.label_op.setText(self.label_op.text() + " + ")
-                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
+                self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))
                 self.Calculo.setText(str(self.result + self.operador[-1]))
                 self.result = (int(self.Calculo.text()))
         except:
@@ -83,7 +81,6 @@ class MiVentana(QMainWindow):
                 self.result = (float(self.Calculo.text()))
 
     def restar(self):
-        #Si ya tiene asignado un operador, agregamos el otro con el mismo botón
         try:
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
@@ -96,7 +93,6 @@ class MiVentana(QMainWindow):
                 self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
                 self.Calculo.setText(str(self.result - self.operador[-1]))
                 self.result = (int(self.Calculo.text()))  
-
         except:
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
@@ -111,7 +107,6 @@ class MiVentana(QMainWindow):
                 self.result = (float(self.Calculo.text()))
 
     def multiplicar(self):
-        #Si ya tiene asignado un operador, agregamos el otro con el mismo botón
         try:
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
@@ -124,7 +119,6 @@ class MiVentana(QMainWindow):
                 self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
                 self.Calculo.setText(str(self.result * self.operador[-1]))
                 self.result = (int(self.Calculo.text()))  
-
         except:
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
@@ -139,7 +133,6 @@ class MiVentana(QMainWindow):
                 self.result = (float(self.Calculo.text()))
 
     def dividir(self):
-        #Si ya tiene asignado un operador, agregamos el otro con el mismo botón
         try:
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
@@ -147,13 +140,11 @@ class MiVentana(QMainWindow):
                 self.label_op.setText(self.label_op.text() + " / ")
                 self.Calculo.setText("")
                 self.operacion = "division"
-            
             else:
                 self.label_op.setText(self.label_op.text() + " / ")
                 self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
                 self.Calculo.setText(str(self.result / self.operador[-1]))
-                self.result = (int(self.Calculo.text()))  
-
+                self.result = (int(self.Calculo.text())) 
         except:
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
@@ -179,8 +170,7 @@ class MiVentana(QMainWindow):
                 self.label_op.setText(self.label_op.text() + " ^ ")
                 self.label_op.setText(self.label_op.text() + (str(self.operador[-1])))     
                 self.Calculo.setText(str(self.result ** self.operador[-1]))
-                self.result = (int(self.Calculo.text()))  
-
+                self.result = (int(self.Calculo.text())) 
         except:
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
@@ -198,16 +188,14 @@ class MiVentana(QMainWindow):
         try:
             if(self.operador == []):
                 self.operador.append(int(self.Calculo.text()))
-                self.label_op.setText(" ²v ")
+                self.label_op.setText(" Â²âˆš ")
                 self.label_op.setText(self.label_op.text() + str(self.operador[0]))           
                 self.Calculo.setText("")
                 self.operacion = "raiz"                          
-
         except:
-            
             if(self.operador == []):
                 self.operador.append(float(self.Calculo.text()))
-                self.label_op.setText(" ²v ")
+                self.label_op.setText(" Â²âˆš ")
                 self.label_op.setText(self.label_op.text() + str(self.operador[0]))           
                 self.Calculo.setText("")
                 self.operacion = "raiz"                          
@@ -222,13 +210,13 @@ class MiVentana(QMainWindow):
                     self.label_op.setText(self.label_op.text() + self.Calculo.text())
                     for i in self.operador:
                         self.result += i
-                    self.Calculo.setText(str(self.result))
+                    self.Calculo.setText(str('{:,}'.format(self.result)))
             except:
                     self.operador.append(float(self.Calculo.text()))
                     self.label_op.setText(self.label_op.text() + self.Calculo.text())
                     for i in self.operador:
                         self.result += i
-                    self.Calculo.setText(str(self.result))
+                    self.Calculo.setText(str('{:,}'.format(self.result)))
             
         elif(self.operacion == "resta"):
             try:    
@@ -236,13 +224,13 @@ class MiVentana(QMainWindow):
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] - i
-                self.Calculo.setText(str(self.result))
+                self.Calculo.setText(str('{:,}'.format(self.result)))
             except:
                 self.operador.append(float(self.Calculo.text()))
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] - i
-                self.Calculo.setText(str(self.result))
+                self.Calculo.setText(str('{:,}'.format(self.result)))
 
         elif(self.operacion == "multiplicacion"):
             try:    
@@ -250,13 +238,13 @@ class MiVentana(QMainWindow):
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] * i
-                self.Calculo.setText(str(self.result))
+                self.Calculo.setText(str('{:,}'.format(self.result)))
             except:
                 self.operador.append(float(self.Calculo.text()))
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] * i
-                self.Calculo.setText(str(self.result))
+                self.Calculo.setText(str('{:,}'.format(self.result)))
 
         elif(self.operacion == "division"):
             try:    
@@ -267,7 +255,7 @@ class MiVentana(QMainWindow):
                         msg.exec_()
                     else:
                         self.result = self.operador[0] / i
-                self.Calculo.setText(str(self.result))
+                self.Calculo.setText(str('{:,}'.format(self.result)))
             except:
                 self.operador.append(float(self.Calculo.text()))
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
@@ -276,7 +264,7 @@ class MiVentana(QMainWindow):
                         msg.exec_()
                     else:
                         self.result = self.operador[0] / i
-                self.Calculo.setText(str(self.result))
+                self.Calculo.setText(str('{:,}'.format(self.result)))
 
         elif(self.operacion == "potenciar"):
             try:    
@@ -284,13 +272,13 @@ class MiVentana(QMainWindow):
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] ** i
-                self.Calculo.setText(str(self.result))
+                self.Calculo.setText(str('{:,}'.format(self.result)))
             except:
                 self.operador.append(float(self.Calculo.text()))
                 self.label_op.setText(self.label_op.text() + self.Calculo.text())
                 for i in self.operador:
                     self.result = self.operador[0] ** i
-                self.Calculo.setText(str(self.result))
+                self.Calculo.setText(str('{:,}'.format(self.result)))
 
         elif(self.operacion == "raiz"):
             self.Calculo.setText(str(math.sqrt(self.operador[0])))           
@@ -315,10 +303,61 @@ class MiVentana(QMainWindow):
     def cambio_signo(self):
         self.Calculo.setText(self.Calculo.text() + "-")    
 
-    #Eventos de asignación de valores al label
-    def click_1(self):
-        self.Calculo.setText(self.Calculo.text() + "1")
+    #Eventos de asignacion de valores al label desde teclado
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key.Key_1:
+            self.Calculo.setText(self.Calculo.text() + "1")
 
+        elif event.key() == Qt.Key.Key_2:
+            self.Calculo.setText(self.Calculo.text() + "2")
+    
+        elif event.key() == Qt.Key.Key_3:
+            self.Calculo.setText(self.Calculo.text() + "3")
+        
+        elif event.key() == Qt.Key.Key_4:
+            self.Calculo.setText(self.Calculo.text() + "4")
+
+        elif event.key() == Qt.Key.Key_5:
+            self.Calculo.setText(self.Calculo.text() + "5")
+
+        elif event.key() == Qt.Key.Key_6:
+            self.Calculo.setText(self.Calculo.text() + "6")
+
+        elif event.key() == Qt.Key.Key_7:
+            self.Calculo.setText(self.Calculo.text() + "7")
+
+        elif event.key() == Qt.Key.Key_8:
+            self.Calculo.setText(self.Calculo.text() + "8")
+
+        elif event.key() == Qt.Key.Key_9:
+            self.Calculo.setText(self.Calculo.text() + "9")
+        
+        elif event.key() == Qt.Key.Key_0:
+            self.Calculo.setText(self.Calculo.text() + "0")
+
+        elif event.key() == Qt.Key.Key_Plus:
+            self.sumar()
+
+        elif event.key() == Qt.Key.Key_Minus:
+            self.restar()
+    
+        elif event.key() == Qt.Key.Key_Asterisk:
+            self.multiplicar()
+
+        elif event.key() == Qt.Key.Key_Slash:
+            self.dividir()
+        
+        elif event.key() == Qt.Key.Key_Backspace:
+            self.borrar_digito()
+
+        elif event.key() == Qt.Key.Key_Return:
+            self.resultado()
+
+
+    #Eventos de asignacion de valores al label desde teclado de la aplicacion
+    def click_1(self): 
+        self.Calculo.setText(self.Calculo.text() + "1")
+    
     def click_2(self): 
         self.Calculo.setText(self.Calculo.text() + "2")
     
@@ -339,15 +378,15 @@ class MiVentana(QMainWindow):
     
     def click_8(self): 
         self.Calculo.setText(self.Calculo.text() + "8")
-    
+
     def click_9(self): 
         self.Calculo.setText(self.Calculo.text() + "9")
     
     def click_0(self): 
         self.Calculo.setText(self.Calculo.text() + "0")
 
-app = QApplication([])
+app = QApplication(sys.argv)
 win = MiVentana()
 win.show()
-app.exec_()
+sys.exit(app.exec_())
 
